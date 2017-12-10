@@ -1,5 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+
+import { ExampleService } from './example/example.service';
 
 describe('AppComponent', () => {
 
@@ -16,6 +19,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers:    [ {provide: ExampleService, useValue: fakeService } ]
     }).compileComponents();
   }));
 
@@ -44,8 +48,28 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelectorAll('h1')[0].textContent)
+      .toContain('Welcome to Chris first project');
+  }));
+
+  /**
+   * Html
+   */
+  it('should render title in a h1 tag', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelectorAll('h1')[0].textContent).toContain('Welcome to Chris first project');
   }));
 
+  /**
+   * Html
+   */
+  it('should render title in a h1 tag', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelectorAll('h1')[0].textContent).toContain('Welcome to Chris first project');
+  }));
 
 });
