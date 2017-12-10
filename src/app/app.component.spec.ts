@@ -3,24 +3,38 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 import { ExampleService } from './example/example.service';
+import { Observable } from 'rxjs/Rx';
 
 describe('AppComponent', () => {
 
-  const fakeService = {
-    'returnCode': 200,
-    'data': {
-      'bookName': 'Who is the next?',
-      'price': 900
-    }
-  };
-
   beforeEach(async(() => {
+
+    const fakeService = {
+      getList: () => {
+        return Observable.of({
+          "returnCode": 200,
+          "data": [
+            {
+              "bookname": "Titanic",
+              "price": 900
+            },
+            {
+              "bookname": "Once",
+              "price": 580
+            }
+          ]
+        })
+      }
+    };
+
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
-      providers:    [ {provide: ExampleService, useValue: fakeService } ]
+      providers: [{ provide: ExampleService, useValue: fakeService }]
     }).compileComponents();
+
+
   }));
 
   /**
