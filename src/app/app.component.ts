@@ -8,7 +8,7 @@ import { ExampleService } from './example/example.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Chris first project';
+  title = 'Chris\' Book Store';
   dataList;
 
   constructor(private eService: ExampleService) { }
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   getBook(){
-    this.eService.getList().subscribe(res=>{
+    this.eService.getNovel().subscribe(res=>{
       this.dataList = res.data;
     });
   }
