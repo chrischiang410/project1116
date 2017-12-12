@@ -11,16 +11,16 @@ export class AppComponent implements OnInit {
   title = 'Chris\' Book Store';
   dataList;
 
-  constructor(private eService: ExampleService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.getBook();
+    // this.getBook();
   }
 
-  getBook(){
-    this.eService.getNovel().subscribe(res=>{
-      this.dataList = res.data;
-    });
-  }
+  // getBook(){
+  //   this.eService.getNovel().subscribe(res=>{
+  //     this.dataList = res.data;
+  //   });
+  // }
 
 }

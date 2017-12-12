@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExampleService } from '../example.service';
 
 @Component({
   selector: 'app-novel',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovelComponent implements OnInit {
 
-  constructor() { }
+  novelList: any[] = [];
+
+  constructor(private eService:ExampleService) { }
 
   ngOnInit() {
+    this.getNovel();
+  }
+
+  getNovel(){
+    this.eService.getNovel().subscribe((res)=>{
+      this.novelList = res.data;
+    });
   }
 
 }

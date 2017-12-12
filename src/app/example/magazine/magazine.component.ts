@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExampleService } from '../example.service';
 
 @Component({
   selector: 'app-magazine',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MagazineComponent implements OnInit {
 
-  constructor() { }
+  magList: any[] = [];
+
+  constructor(private eService: ExampleService) { }
 
   ngOnInit() {
+    this.getMag();
+  }
+
+  getMag() {
+    this.eService.getMag().subscribe(res => {
+      this.magList = res.data;
+    });
   }
 
 }

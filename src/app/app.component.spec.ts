@@ -10,32 +10,12 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
 
-    const fakeService = {
-      getList: () => {
-        return Observable.of({
-          "returnCode": 200,
-          "data": [
-            {
-              "bookname": "Titanic",
-              "price": 900
-            },
-            {
-              "bookname": "Once",
-              "price": 580
-            }
-          ]
-        })
-      }
-    };
-
     TestBed.configureTestingModule({
       imports:[RouterTestingModule],
       declarations: [
         AppComponent
-      ],
-      providers: [{ provide: ExampleService, useValue: fakeService }]
+      ]
     }).compileComponents();
-
 
   }));
 
@@ -66,26 +46,6 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelectorAll('h1')[0].textContent)
       .toContain('Chris\' Book Store');
-  }));
-
-  /**
-   * Html
-   */
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('h1')[0].textContent).toContain('Welcome to Chris first project');
-  }));
-
-  /**
-   * Html
-   */
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('h1')[0].textContent).toContain('Welcome to Chris first project');
   }));
 
 });

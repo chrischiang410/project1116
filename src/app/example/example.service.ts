@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 
 @Injectable()
@@ -9,17 +9,18 @@ export class ExampleService {
   comicUrl: string = 'https://jsonbin.org/chrischiang410/getComicList';
   magUrl: string = 'https://jsonbin.org/chrischiang410/getMagList';
 
-  constructor(protected http: HttpClient,) { }
-
-  // getCustomHeaders() {
-  //   const headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   const options = { headers: headers };
-  //   return options;
-  // }
+  constructor(protected http: HttpClient) { }
 
   getNovel(): Observable<any>  {
     return this.http.get(this.novelUrl);
+  }
+
+  getComic(): Observable<any>  {
+    return this.http.get(this.comicUrl);
+  }
+
+  getMag(): Observable<any>  {
+    return this.http.get(this.magUrl);
   }
 
 }
