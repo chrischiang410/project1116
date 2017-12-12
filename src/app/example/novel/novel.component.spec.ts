@@ -30,13 +30,13 @@ describe('NovelComponent', () => {
     }
   };
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ NovelComponent ],
       providers: [{ provide: ExampleService, useValue: fakeService }]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NovelComponent);

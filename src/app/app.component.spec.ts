@@ -11,7 +11,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
-      imports:[RouterTestingModule],
+      imports: [RouterTestingModule],
       declarations: [
         AppComponent
       ]
@@ -34,7 +34,7 @@ describe('AppComponent', () => {
   it(`should have the custom title`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Chris\' Book Store');
+    expect(app.title).toEqual('Chris\'');
   }));
 
   /**

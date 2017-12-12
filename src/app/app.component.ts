@@ -1,26 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-
-import { ExampleService } from './example/example.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'Chris\' Book Store';
-  dataList;
+export class AppComponent {
+  title = 'Chris\'';
 
   constructor() { }
-
-  ngOnInit() {
-    // this.getBook();
-  }
-
-  // getBook(){
-  //   this.eService.getNovel().subscribe(res=>{
-  //     this.dataList = res.data;
-  //   });
-  // }
-
 }
