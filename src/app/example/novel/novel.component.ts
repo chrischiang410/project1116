@@ -8,7 +8,18 @@ import { ExampleService } from '../example.service';
     <span>{{item.bookname}}</span>
     <span>$ {{item.price}}</span>
   </div>
-  `
+  `,
+  styles: [`
+    div {
+      width:40%
+    }
+    div > span:first-child {
+      display: inline-block;
+      width: 100px;
+      text-align: left;
+      margin-right: 5px;
+    };
+  `]
 })
 export class NovelComponent implements OnInit {
 

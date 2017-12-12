@@ -20,7 +20,7 @@ describe('AppComponent', () => {
   }));
 
   /**
-   * TestBed
+   * TestBed (async)
    */
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -29,7 +29,7 @@ describe('AppComponent', () => {
   }));
 
   /**
-   * async
+   * 驗證參數
    */
   it(`should have the custom title`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -38,7 +38,7 @@ describe('AppComponent', () => {
   }));
 
   /**
-   * Html
+   * 檢驗在Html上的值
    */
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -46,6 +46,20 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelectorAll('h1')[0].textContent)
       .toContain('Chris\' Book Store');
+  }));
+
+  /**
+   * 檢驗在Html上的值 part2
+   */
+  it('should render another title in a h1 tag', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    const newStoreName = 'Chris & Mico\'s';
+    app.title = newStoreName;
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelectorAll('h1')[0].textContent)
+      .toContain('Chris & Mico\'s Book Store');
   }));
 
 });

@@ -1,0 +1,9 @@
+div {
+  width:40%
+}
+div > span:first-child {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+  margin-right: 5px;
+};
